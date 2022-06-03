@@ -25,7 +25,7 @@ public class MybatisPlusTest {
     @Test
     public void testInsert() {
         User user = new User();
-        user.setName("小明");
+        user.setUserName("小明");
         user.setAge(11);
         user.setEmail("xx@163.com");
         int insertNum = userMapper.insert(user);

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -28,7 +29,7 @@ public class MybatisPlusIServiceTest {
         List<User> users = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             User user = new User();
-            user.setName("name" + i);
+            user.setUserName("name" + i);
             user.setEmail("email" + i);
             users.add(user);
         }
@@ -41,10 +42,22 @@ public class MybatisPlusIServiceTest {
     @Test
     public void insertTest() {
         User user = new User();
-        user.setName("张三");
+        user.setUserName("张三");
         user.setAge(18);
         boolean save = userService.save(user);
         System.out.println("结果:" + save);
+    }
+
+    @Test
+    public void deleteLogic() {
+        boolean save = userService.removeBatchByIds(Arrays.asList(1L,2L,3L));
+        System.out.println("结果:" + save);
+    }
+
+    @Test
+    public void selectTest() {
+        User user = userService.getById(5L);
+        System.out.println("结果:" + user);
     }
 
 }
