@@ -1,7 +1,9 @@
 package com.ly.mybatisplus.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ly.mybatisplus.pojo.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Map;
@@ -15,4 +17,12 @@ public interface UserMapper extends BaseMapper<User> {
      * @return
      */
     Map<String,Object> selectMapById(Long id);
+
+    /**
+     * 通过年龄查询并分页
+     * @param page mybatis-plus提供的，必须存在且在第一个位置，注解也是必须的
+     * @param age
+     * @return
+     */
+    Page<User> selectPageVO( Page<User> page, Integer age);
 }

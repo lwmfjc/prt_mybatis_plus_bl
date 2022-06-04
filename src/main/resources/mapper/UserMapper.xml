@@ -5,4 +5,7 @@
         select id,name,age,email from user
         where id = #{id} and 1=1
     </select>
+    <select id="selectPageVO" resultType="User">
+        select uid,name,email from t_user where age > #{age}
+    </select>
 </mapper>
