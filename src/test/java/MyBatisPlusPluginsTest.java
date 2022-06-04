@@ -1,5 +1,6 @@
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ly.mybatisplus.MybatisPlusApplication;
+import com.ly.mybatisplus.enums.SexEnum;
 import com.ly.mybatisplus.mapper.ProductMapper;
 import com.ly.mybatisplus.mapper.UserMapper;
 import com.ly.mybatisplus.pojo.Product;
@@ -62,6 +63,15 @@ public class MyBatisPlusPluginsTest {
             productMapper.updateById(product);
         }
 
+    }
+
+    @Test
+    public void testEnum(){
+        User user=new User();
+        user.setUserName("enum - 测试名字");
+        user.setSex(SexEnum.MALE);
+        int insert = userMapper.insert(user);
+        System.out.println(insert);
     }
 
 }

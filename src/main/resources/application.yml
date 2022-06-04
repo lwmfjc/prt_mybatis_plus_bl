@@ -19,3 +19,4 @@ mybatis-plus:
       table-prefix: t_
       id-type: auto
   type-aliases-package: com.ly.mybatisplus.pojo
+  type-enums-package: com.ly.mybatisplus.enums

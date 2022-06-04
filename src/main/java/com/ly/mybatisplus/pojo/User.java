@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.ly.mybatisplus.enums.SexEnum;
 import lombok.Data;
 
 @Data
@@ -16,4 +17,6 @@ public class User {
     private String email;
     @TableLogic
     private Integer isDeletedLy;
+
+    private SexEnum sex;
 }
