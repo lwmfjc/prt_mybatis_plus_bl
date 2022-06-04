@@ -28,9 +28,9 @@ public class MyBatisPlusPluginsTest {
     @Test
     public void testPageCustom() {
         Page<User> page = new Page<>();
-        page.setCurrent(2);//当前页页码
-        page.setSize(3);//每页条数
-        Page<User> userPage = userMapper.selectPage(page, null);
+        page.setCurrent(3);//当前页页码
+        page.setSize(5);//每页条数
+        Page<User> userPage = userMapper.selectPageVO(page, 12);
         System.out.println(userPage.getRecords() + "----\n"
                 + userPage.getPages() + "----\n"
                 + userPage.getTotal() + "---\n")
