@@ -1,10 +1,13 @@
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ly.mybatisplus.MybatisPlusApplication;
 import com.ly.mybatisplus.mapper.UserMapper;
 import com.ly.mybatisplus.pojo.User;
+import org.apache.ibatis.reflection.wrapper.BaseWrapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.sql.Wrapper;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -95,5 +98,10 @@ public class MybatisPlusTest {
     public void testSelectCustom() {
         Map<String, Object> map = userMapper.selectMapById(2L);
         System.out.println(map);
+    }
+
+    @Test
+    public void testWrapper(){
+        //BaseMapper
     }
 }
