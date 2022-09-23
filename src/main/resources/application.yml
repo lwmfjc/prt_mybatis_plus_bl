@@ -5,9 +5,9 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     #配置数据源各个信息
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mybatis_plus?characterEncoding=utf-8&&useSSL=false&&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://rm-bp1vm8p7jlyki5vj072go.mysql.rds.aliyuncs.com:3306/ly_review?characterEncoding=utf-8&&useSSL=false&&allowPublicKeyRetrieval=true
     username: root
-    password: 123456
+    password: 4lys7TuBb2w!L#JQZ
 #日志
 mybatis-plus:
   configuration:
@@ -16,7 +16,7 @@ mybatis-plus:
     - classpath:/mapper/**/*.xml
   global-config:
     db-config:
-      table-prefix: t_
+      # table-prefix: t_
       id-type: auto
   type-aliases-package: com.ly.mybatisplus.pojo
   type-enums-package: com.ly.mybatisplus.enums
