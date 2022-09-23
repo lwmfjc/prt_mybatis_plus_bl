@@ -1,3 +1,4 @@
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ly.mybatisplus.MybatisPlusApplication;
 import com.ly.mybatisplus.enums.SexEnum;
@@ -10,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.UUID;
+
 @SpringBootTest(classes = MybatisPlusApplication.class)
 public class MyBatisPlusPluginsTest {
     @Autowired
@@ -21,7 +24,7 @@ public class MyBatisPlusPluginsTest {
     public void testPage() {
         Page<User> page = new Page<>();
         page.setCurrent(2);//当前页页码
-        page.setSize(3);//每页条数
+        page.setSize(5);//每页条数
         Page<User> userPage = userMapper.selectPage(page, null);
         System.out.println(userPage.getRecords() + "----\n"
                 + userPage.getPages() + "----\n"
@@ -33,12 +36,14 @@ public class MyBatisPlusPluginsTest {
     @Test
     public void testPageCustom() {
         Page<User> page = new Page<>();
-        page.setCurrent(3);//当前页页码
+        page.setCurrent(2);//当前页页码
         page.setSize(5);//每页条数
-        Page<User> userPage = userMapper.selectPageVO(page, 12);
+        IPage<User> userPage = userMapper.selectPageVO(page, 0);
         System.out.println(userPage.getRecords() + "----\n"
-                + userPage.getPages() + "----\n"
-                + userPage.getTotal() + "---\n")
+                + userPage.getSize() + "----每页条数\n"
+                + userPage.getCurrent() + "----当前页\n"
+                + userPage.getPages() + "----总页数\n"
+                + userPage.getTotal() + "---总条数\n")
         ;
     }
 
@@ -67,11 +72,14 @@ public class MyBatisPlusPluginsTest {
 
     @Test
     public void testEnum(){
-        User user=new User();
-        user.setUserName("enum - 测试名字");
-        user.setSex(SexEnum.MALE);
-        int insert = userMapper.insert(user);
-        System.out.println(insert);
+        for(int i=7;i>=0;i--) {
+            User user = new User();
+            user.setUserName("enum - 测试名字");
+            user.setSex(SexEnum.MALE);
+            user.setEmail(UUID.randomUUID().toString());
+            int insert = userMapper.insert(user);
+            System.out.println(insert);
+        }
     }
 
 }

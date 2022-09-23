@@ -1,6 +1,7 @@
 package com.ly.mybatisplus.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ly.mybatisplus.pojo.User;
 import org.apache.ibatis.annotations.Param;
@@ -24,5 +25,5 @@ public interface UserMapper extends BaseMapper<User> {
      * @param age
      * @return
      */
-    Page<User> selectPageVO( Page<User> page, Integer age);
+    IPage<User> selectPageVO(IPage<User> page, Integer age);
 }
